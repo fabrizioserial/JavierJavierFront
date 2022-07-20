@@ -12,6 +12,7 @@ import { Container } from '@mui/material'
 import { ProfileHeader } from '../../components/profileHeader'
 import { useUserContext } from '../../components/contexts/userContext'
 import { FollowActions } from '../../components/followActions'
+import {useKeycloak} from "@react-keycloak/web";
 
 type UserProfileParams = {
   userId: string
@@ -26,6 +27,8 @@ type UserProfileValue = {
 export const UserProfile = () => {
   const user = useUserContext()
   const {userId} = useParams<UserProfileParams>()
+
+  const {keycloak} = useKeycloak()
 
   const isSelf: boolean = user.id === userId
 

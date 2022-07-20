@@ -8,10 +8,12 @@ import { MainFrame } from '../../components/mainFrame'
 import { UserContext } from '../../components/contexts/userContext'
 import { CreatePostCard } from '../../components/createPostCard'
 import { Container } from '@mui/material'
+import {PostApi} from "../../data/api/post-data";
 
 type HomeState =
   | {
   loaded: false
+  posts: undefined
 }
   | {
   loaded: true
@@ -19,13 +21,13 @@ type HomeState =
 }
 
 export const Home = () => {
-  const postData = usePostData()
+  const postData = new PostApi()
   const user = useContext(UserContext)
 
-  const [state, setState] = useState<HomeState>({loaded: false})
+  const [state, setState] = useState<HomeState>({loaded: false, posts: undefined})
 
   useEffect(() => {
-    postData.getFeedPosts().then(posts => {
+    !state.loaded && !state.posts && postData.getFeedPosts().then(posts => {
       setState({loaded: true, posts})
     })
   }, [postData])

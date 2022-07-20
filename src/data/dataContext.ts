@@ -1,3 +1,5 @@
+import { UserApi } from './api/user-data';
+import { PostApi } from './api/post-data';
 import { createContext, useContext } from 'react'
 
 import { FullPost, PostData } from './posts'
@@ -12,8 +14,8 @@ export interface DataContainer {
 }
 
 export const DataContext = createContext<DataContainer>({
-  posts: new LocalPostData(new LocalDataStorage<FullPost>(LocalPostData.type)),
-  users: new LocalUserData(new LocalDataStorage<User>(LocalUserData.type), ''),
+  posts: new PostApi(),
+  users: new UserApi(),
 })
 
 export const usePostData = (): PostData => {
