@@ -80,14 +80,14 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-#      - name: Pull image on VM
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.DEV_HOST }}
-#          username: ${{ secrets.DEV_USERNAME }}
-#          key: ${{ secrets.DEV_KEY }}
-#          script: |
-#            cd JibberJabberCompose
-#            docker compose stop ui
-#            docker compose pull ui
-#            docker compose up -d ui
+      - name: Pull image on VM
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VM_HOST_DEV }}
+          username: ${{ secrets.VM_USERNAME_DEV }}
+          password: ${{ secrets.VM_PASSWORD_DEV }}
+          script: |
+            cd jibberJabberBlackOps2
+            docker compose stop frontend
+            docker compose pull frontend
+            docker compose up -d frontend
