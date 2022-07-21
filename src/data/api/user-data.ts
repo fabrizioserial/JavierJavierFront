@@ -4,14 +4,14 @@ import UserService from '../../utils/userService';
 
 
 const jjAxiosFollow = axios.create({
-    baseURL: "http://localhost/follow",
+    baseURL: "https://dev.jibberjabber.cloud/follow",
     headers: {
         "Content-type": "application/json"
     }
 })
 
 const jjAxiosUser = axios.create({
-    baseURL: "http://localhost/user",
+    baseURL: "https://dev.jibberjabber.cloud/user",
     headers: {
         "Content-type": "application/json"
     }
