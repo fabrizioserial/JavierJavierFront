@@ -3,7 +3,7 @@ import { FullPost, NewPost, Post, PostData } from '../posts';
 import UserService from '../../utils/userService';
 
 const jjAxios = axios.create({
-    baseURL: "http://localhost/post",
+    baseURL: "https://jibberjabber.cloud/post",
     headers: {
         "Content-type": "application/json"
     }
