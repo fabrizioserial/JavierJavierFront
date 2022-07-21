@@ -1,7 +1,7 @@
 import Keycloak from 'keycloak-js';
 
 const keycloak = new Keycloak({
-    url: "http://localhost:80/keycloak",
+    url: "https://www.dev.jibberjabber.cloud/keycloak",
     realm: "Jibber-Jabber",
     clientId: "Javier-Javier-Front",
 });
