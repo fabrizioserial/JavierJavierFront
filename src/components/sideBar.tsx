@@ -19,7 +19,7 @@ export type ItemProps = {
 
 const createItems = (userId: string): ItemProps[] => [
   {
-    title: 'Home',
+    title: 'Home 2',
     path: '/',
     iconComponent: Home,
   },
