@@ -27,10 +27,10 @@ export const Home = () => {
   const [state, setState] = useState<HomeState>({loaded: false, posts: undefined})
 
   useEffect(() => {
-    !state.loaded && !state.posts && postData.getFeedPosts().then(posts => {
+    postData.getFeedPosts().then(posts => {
       setState({loaded: true, posts})
     })
-  }, [postData])
+  }, [])
 
   const refreshPosts = useCallback(() => {
     postData.getFeedPosts()
